@@ -62,8 +62,8 @@ export default function App() {
 
       <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4">
         {data ? (
-          Object.keys(data).map((key) => (
-            <Box title={key} quantity={data[key] as number} />
+          (Object.keys(data) as Array<keyof typeof data>).map((key) => (
+            <Box title={key} quantity={data[key]} />
           ))
         ) : (
           <p className="text-2xl m-3">Loading...</p>
