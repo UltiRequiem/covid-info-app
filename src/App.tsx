@@ -1,34 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
+  const data = [
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+    { title: "lol", quantity: 33 },
+  ];
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="h-screen flex flex-col text-center">
+      <header className="bg-yellow-500 p-4 text-3xl font-bold">Covid 19</header>
+
+      <div className="flex-1 grid grid-cols-2 gap-4">
+        {data.map((item) => (
+          <Box {...item} />
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <footer className="bg-green-500 p-2 text-xl">Eliaz Bobadilla</footer>
     </div>
-  )
+  );
 }
 
-export default App
+const Box = (props: { title: string; quantity: number }) => {
+  return (
+    <section className="bg-blue-600 m-5 p-3 flex align-items content-center flex-col rounded-lg">
+      <p>{props.title}</p>
+      <p>{props.quantity}</p>
+    </section>
+  );
+};
